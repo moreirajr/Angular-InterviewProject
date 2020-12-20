@@ -1,0 +1,15 @@
+<form [formGroup]="formProduto"  (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Valor</mat-label>
+        <input matInput min="1" type="number" formControlName="valor">
+    </mat-form-field>
+    <br>
+    <input type="file" (change)="onChange($event)"/>
+    <br>
+    <button mat-raised-button>Submit</button>
+</form>
