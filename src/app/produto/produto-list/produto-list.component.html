@@ -28,7 +28,7 @@
     <!-- Column 4 -->
     <ng-container matColumnDef="Imagens">
       <th mat-header-cell *matHeaderCellDef> Imagem </th>
-      <td mat-cell *matCellDef="let element"> {{element.Imagens}} </td>
+      <td mat-cell *matCellDef="let element"> <img [src]="element.Imagens" /> </td>
     </ng-container>
 
     <ng-container matColumnDef="Acao">

@@ -25,7 +25,11 @@ export class ProdutoCreateComponent implements OnInit {
   }
 
   onChange(event: Event) {
-    this.formProduto.controls['file'].setValue(event.target.files[0]);
+    const element = event.currentTarget as HTMLInputElement;
+    let fileList: FileList | null = element.files;
+
+    if(fileList)
+      this.formProduto.controls['file'].setValue(fileList[0]);
   }
 
   openSnackBar(message: string, action: string) {
@@ -44,9 +48,9 @@ export class ProdutoCreateComponent implements OnInit {
     console.log(this.formProduto.getRawValue());
 
     let formData = new FormData();
-    formData.append('nome', this.formProduto.get('nome').value);
-    formData.append('valor', this.formProduto.get('valor').value);
-    formData.append('imagem', this.formProduto.get('file').value);
+    formData.append('nome', this!.formProduto!.get('nome')!.value);
+    formData.append('valor', this!.formProduto!.get('valor')!.value);
+    formData.append('imagem', this!.formProduto!.get('file')!.value);
 
     this.produtoService.createProduto(formData).subscribe(data =>{
       if(data != null)
