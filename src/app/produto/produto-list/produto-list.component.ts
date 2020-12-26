@@ -44,6 +44,10 @@ export class ProdutoListComponent implements OnInit {
       });   
   }
 
+  openImage(imageUrls: string[]){
+    window.open(imageUrls[0], 'Image');
+  }
+
   openUpdateDialog(obj: Produto){
     
   }
@@ -66,6 +70,6 @@ export class ProdutoListComponent implements OnInit {
               this.carregarProdutos();
           });
       }
-    });  
+    });
   }
 }
